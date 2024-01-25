@@ -47,6 +47,30 @@ torch.set_printoptions(precision=8)
 
 from scripts.train_script import main
 
+def get_rxy():
+    import numpy as np
+    from decimal import Decimal
+
+    R = np.arange(0.04, 0.081, 0.005)  # 9
+    cylinder_x = np.arange(0.1, 0.31, 0.05)  # 5
+    cylinder_y = np.arange(0.1, 0.31, 0.05)  # 5
+
+    list = []
+    count = 0
+    for r in R:
+        for cx in cylinder_x:
+            for cy in cylinder_y:
+                list.append([r, cx, cy])
+                # if count in [0, 8, 20, 155, 222, 224]:
+                #     print(Decimal(r), cx, cy)
+                count += 1
+
+    # for i in [0, 8, 155, 222, 224]:
+    #     print(list[i])
+
+    np.save('rxy.npy', list)
+
+
 if __name__ == '__main__':
     """ 
         初始化参数 
@@ -58,5 +82,7 @@ if __name__ == '__main__':
 
     # train_seed_list = np.linspace(0, 4, 5, dtype=int)
     # valid_seed_list = np.linspace(6, 9, 5, dtype=int)
+
+    # get_rxy()
 
     main(dataset, dimension, train_seed_list, valid_seed_list)

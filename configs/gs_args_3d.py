@@ -33,7 +33,7 @@ def get_config_gs(dataset='gs'):
 
     parser.add_argument('--dimension', type=int, default=3, help='3d dimension.')
     parser.add_argument('--space-step', type=int, default=1, help='space-step.')
-    parser.add_argument('--time-step', type=int, default=5, help='time-step.')
+    parser.add_argument('--time-step', type=int, default=1, help='time-step.')
 
     parser.add_argument('--addition-feature-dim', type=int, default=8, help='addition input feature dimension.')
     parser.add_argument('--num-knn', type=int, default=8, help='Number of knn nodes.')

@@ -24,6 +24,7 @@
                   ┃┫┫        ┃┫┫
                   ┗┻┛        ┗┻┛ 
 """
+import numpy as np
 from torch_geometric.data.data import Data
 from torch_cluster import knn_graph
 import torch
@@ -607,7 +608,6 @@ class Decoder(nn.Module):
         #     self.activation = nn.ReLU()
         # elif args.dataset_name == 'burgers' or args.dataset_name == 'gs' or args.dataset_name == 'bs':
         #     self.activation = nn.GELU()
-
         self.decode_mlp = nn.Sequential(nn.Linear(self.hidden_dim, self.hidden_dim), self.activation,
                                         # nn.Linear(self.hidden_dim, self.hidden_dim), self.activation,
                                         # nn.Linear(self.hidden_dim, self.hidden_dim), self.activation,
